@@ -158,13 +158,13 @@ const homePage = (L) => {
 <div id="intro">
   <div class="in-top mono">ASF ORGANIZATION · MMXXVI</div>
   <div class="emb">
-    <svg class="emb-frame" viewBox="0 0 400 220" preserveAspectRatio="none"><rect x="2" y="2" width="396" height="216" rx="10" pathLength="400" vector-effect="non-scaling-stroke"/></svg>
+    <svg class="emb-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48.5" pathLength="100"/></svg>
     <div class="emb-glow"></div>
-    <div class="emb-l">
-      <span class="eA">A</span><span class="eS">S</span><span class="eF">F</span>
+    <div class="lg">
+      <i class="s1"></i><i class="s2"></i><i class="s3"></i>
     </div>
   </div>
-  <div class="in-word">ORGANIZATION</div>
+  <div class="in-word">ASF ORGANIZATION</div>
   <div class="in-slogan">«${t.slogan}»</div>
   <div class="in-bar"><i></i></div>
 </div>`;

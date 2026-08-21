@@ -19,7 +19,7 @@
   if (intro) {
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(() => intro.classList.add('go'));
-    setTimeout(endIntro, reduced ? 250 : 2750);
+    setTimeout(endIntro, reduced ? 250 : 3100);
     intro.addEventListener('click', endIntro);
     setTimeout(endIntro, 5000); // страховка
   } else document.body.classList.add('herogo');
