@@ -142,6 +142,14 @@
     else v.pause();
   }), { threshold: 0.08 });
   $$('video.bgv').forEach(v => vio.observe(v));
+  // гвард: браузер ўзи тўхтатиб қўйса — кўринаётган видеони қайта юргизиш
+  setInterval(() => {
+    if (document.hidden) return;
+    $$('video.bgv').forEach(v => {
+      const r = v.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < innerHeight && v.paused) v.play().catch(() => {});
+    });
+  }, 3000);
 
   // ————— cursor glow —————
   const glow = $('#glow');
