@@ -344,6 +344,64 @@ export const CALC = [
     sizes: [['№ 8', 7.05], ['№ 10', 8.59], ['№ 12', 10.40], ['№ 14', 12.30], ['№ 16', 14.20], ['№ 18', 16.30], ['№ 20', 18.40], ['№ 24', 24.00]] },
 ];
 
+// ————— V2: кинематик бош саҳифа медиа-харитаси —————
+export const MEDIA = {
+  heroVideo: 'assets/v-hero.mp4', heroPoster: 'assets/m1.jpg',
+  films: [
+    { video: 'assets/v-metal.mp4', poster: 'assets/m4.jpg' },
+    { video: 'assets/v-tech.mp4', poster: 'assets/m2.jpg' },
+    { video: 'assets/v-build.mp4', poster: 'assets/m3.jpg' },
+  ],
+  manifestoBg: 'assets/m9.jpg',
+  aboutImg: 'assets/m10.jpg',
+};
+
+// ————— V2: техника парки (аренда/хизмат) —————
+export const FLEET = [
+  { id: 'exc', img: 'assets/m2.jpg', name: { ru: 'Экскаватор', uz: 'Ekskavator' }, d: { ru: 'Копка котлованов и траншей, погрузка грунта', uz: "Kotlovon va transheya qazish, grunt yuklash" } },
+  { id: 'crane', img: 'assets/m4.jpg', name: { ru: 'Автокран', uz: 'Avtokran' }, d: { ru: 'Монтаж конструкций, разгрузка на объекте', uz: "Konstruksiya montaji, obyektda yuk tushirish" } },
+  { id: 'dump', img: 'assets/m5.jpg', name: { ru: 'Самосвал', uz: 'Samosval' }, d: { ru: 'Инертные материалы, грунт, вывоз', uz: "Inert materiallar, grunt, olib chiqish" } },
+  { id: 'loader', img: 'assets/m6.jpg', name: { ru: 'Погрузчик', uz: 'Yuklagich' }, d: { ru: 'Погрузка сыпучих, планировка площадок', uz: "Sochiluvchan yuklarni ortish, maydon tekislash" } },
+  { id: 'dozer', img: 'assets/m7.jpg', name: { ru: 'Бульдозер', uz: 'Buldozer' }, d: { ru: 'Планировка, срезка и перемещение грунта', uz: "Tekislash, grunt kesish va surish" } },
+  { id: 'roller', img: 'assets/m8.jpg', name: { ru: 'Каток', uz: 'Katok' }, d: { ru: 'Уплотнение оснований и асфальта', uz: "Asos va asfaltni zichlash" } },
+];
+
+// ————— V2: кинематик саҳифа матнлари —————
+export const V2 = {
+  ru: {
+    heroTag: 'ПОСТАВКИ ДЛЯ БОЛЬШОГО СТРОИТЕЛЬСТВА',
+    manifesto: ['МЕТАЛЛ.', 'ТЕХНИКА.', 'МАТЕРИАЛЫ.'],
+    manifestoSub: 'Всё для большого строительства — от одного поставщика. Промышленные объёмы, поставка под график объекта, один ответственный.',
+    films: [
+      { k: 'НАПРАВЛЕНИЕ 01', t: 'МЕТАЛЛО­ПРОКАТ', s: 'Профтруба · арматура · швеллер · уголок · профнастил', d: 'Полный сортамент чёрного проката со складов в Ташкенте и Навоийской области — от одной единицы до вагонных норм.', cta: 'Открыть каталог', href: 'catalog/' },
+      { k: 'НАПРАВЛЕНИЕ 02', t: 'СПЕЦ­ТЕХНИКА', s: 'Аренда техники для вашего объекта', d: 'Экскаваторы, самосвалы, краны и дорожная техника — в аренду под смену, месяц или весь проект.', cta: 'Смотреть парк', href: '#fleet' },
+      { k: 'НАПРАВЛЕНИЕ 03', t: 'СТРОЙ­МАТЕРИАЛЫ', s: 'Цемент М400—М600 · асфальт всех типов', d: 'Цемент, асфальтобетонные смеси и материалы с отгрузкой под график укладки.', cta: 'Открыть каталог', href: 'catalog/' },
+    ],
+    fleetKicker: 'ПАРК ТЕХНИКИ', fleetTitle: 'Техника<br>в аренду',
+    fleetSub: 'Под смену, месяц или весь проект. Ставку назовём по телефону за две минуты.',
+    fleetCta: 'Узнать ставку',
+    aboutMore: 'Работаем с промышленными объектами, государственными заказами и частной стройкой.',
+    catKicker: 'КАТАЛОГ ПРОДУКЦИИ', backHome: 'На главную', openCatalog: 'Каталог продукции',
+    catHint: 'Девять групп продукции · ГОСТ сортамент · калькулятор тонн и метров',
+  },
+  uz: {
+    heroTag: 'KATTA QURILISH UCHUN YETKAZIB BERISH',
+    manifesto: ['METALL.', 'TEXNIKA.', 'MATERIALLAR.'],
+    manifestoSub: "Katta qurilish uchun hamma narsa — bitta yetkazib beruvchidan. Sanoat hajmlari, obyekt grafigiga mos yetkazish, bitta mas'ul.",
+    films: [
+      { k: "YO'NALISH 01", t: 'METALLO­PROKAT', s: 'Profil quvur · armatura · shveller · ugolok · profnastil', d: "Toshkent va Navoiy viloyatidagi omborlardan qora prokatning to'liq sortamenti — bitta donadan vagon me'yorlarigacha.", cta: 'Katalogni ochish', href: 'catalog/' },
+      { k: "YO'NALISH 02", t: 'MAXSUS­TEXNIKA', s: 'Obyektingiz uchun texnika ijarasi', d: "Ekskavator, samosval, kran va yo'l texnikasi — smena, oy yoki butun loyihaga ijaraga.", cta: "Parkni ko'rish", href: '#fleet' },
+      { k: "YO'NALISH 03", t: 'QURILISH­MATERIALLARI', s: 'Sement M400—M600 · barcha turdagi asfalt', d: "Sement, asfaltbeton aralashmalari va materiallar — yotqizish grafigiga mos yuklash bilan.", cta: 'Katalogni ochish', href: 'catalog/' },
+    ],
+    fleetKicker: 'TEXNIKA PARKI', fleetTitle: 'Texnika<br>ijaraga',
+    fleetSub: "Smena, oy yoki butun loyihaga. Stavkani telefonda ikki daqiqada aytamiz.",
+    fleetCta: 'Stavkani bilish',
+    aboutMore: "Sanoat obyektlari, davlat buyurtmalari va xususiy qurilish bilan ishlaymiz.",
+    catKicker: 'MAHSULOT KATALOGI', backHome: 'Bosh sahifaga', openCatalog: 'Mahsulot katalogi',
+    catHint: "To'qqiz guruh mahsulot · GOST sortament · tonna-metr kalkulyatori",
+  },
+};
+
 // ————— UI матнлари —————
 export const I18N = {
   ru: {

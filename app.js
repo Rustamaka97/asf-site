@@ -19,19 +19,9 @@
   if (intro) {
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(() => intro.classList.add('go'));
-    const num = $('#in-num'), bar = $('#in-bar');
-    const t0 = performance.now(), dur = reduced ? 60 : 2100;
-    const tick = t => {
-      if (introDone) return;
-      const p = Math.min((t - t0) / dur, 1);
-      const v = Math.round(100 * (1 - Math.pow(1 - p, 2)));
-      num.textContent = String(v).padStart(2, '0');
-      bar.style.width = v + '%';
-      if (p < 1) requestAnimationFrame(tick); else setTimeout(endIntro, 380);
-    };
-    requestAnimationFrame(tick);
+    setTimeout(endIntro, reduced ? 250 : 2750);
     intro.addEventListener('click', endIntro);
-    setTimeout(endIntro, 4200); // страховка
+    setTimeout(endIntro, 5000); // страховка
   } else document.body.classList.add('herogo');
 
   // ————— header scroll —————
@@ -87,19 +77,21 @@
     $$('.pcard').forEach(c => c.classList.toggle('hide', f !== 'all' && c.dataset.cat !== f));
   }));
 
-  // ————— модал —————
+  // ————— модал (фақат каталог саҳифасида бор) —————
   const modal = $('#modal');
-  const openModal = id => {
-    $$('.md-box', modal).forEach(m => m.style.display = m.dataset.p === id ? '' : 'none');
-    modal.classList.add('open');
-    modal.scrollTop = 0;
-    document.body.style.overflow = 'hidden';
-  };
-  const closeModal = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
-  $$('.pcard').forEach(c => c.addEventListener('click', () => openModal(c.dataset.p)));
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  $$('.md-close', modal).forEach(b => b.addEventListener('click', closeModal));
-  addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  if (modal) {
+    const openModal = id => {
+      $$('.md-box', modal).forEach(m => m.style.display = m.dataset.p === id ? '' : 'none');
+      modal.classList.add('open');
+      modal.scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    };
+    const closeModal = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
+    $$('.pcard').forEach(c => c.addEventListener('click', () => openModal(c.dataset.p)));
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    $$('.md-close', modal).forEach(b => b.addEventListener('click', closeModal));
+    addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  }
 
   // ————— калькулятор —————
   const CALC = window.__CALC || [];
@@ -142,6 +134,14 @@
     inM.addEventListener('input', fromMeters);
     fillSizes();
   }
+
+  // ————— фон видеолар: экрандан чиқса пауза (батарея/трафик) —————
+  const vio = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { v.play().catch(() => {}); }
+    else v.pause();
+  }), { threshold: 0.08 });
+  $$('video.bgv').forEach(v => vio.observe(v));
 
   // ————— cursor glow —————
   const glow = $('#glow');
